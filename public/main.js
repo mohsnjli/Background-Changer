@@ -11,9 +11,15 @@ const colors = [
     "Indigo"
 ];
 
+function colorChange(color) {
+    document.body.style.backgroundColor = color;
+    document.querySelector("#colorName").innerHTML = color;
+    document.querySelector(`button[data-color=${color}]`).classList.add("active");
+}
 colors.forEach(color => {
     const button = document.createElement("button");
     document.querySelector("div.colors").appendChild(button);
+    button.setAttribute("data-info" , color);
     button.style.backgroundColor = color;
     button.onclick = function () {
         colorChange(color);
@@ -26,9 +32,4 @@ document.body.onload = function () {
     const color = colors[random];
     colorChange(color);
 
-}
-
-function colorChange(color) {
-    document.body.style.backgroundColor = color;
-    document.querySelector("#colorName").innerHTML = color;
 }
