@@ -16,14 +16,19 @@ colors.forEach(color => {
     document.querySelector("div.colors").appendChild(button);
     button.style.backgroundColor = color;
     button.onclick = function () {
-        document.body.style.backgroundColor = color;
-        document.querySelector("#colorName").innerHTML = color;
+        colorChange(color);
     }
 })
 
 
 document.body.onload = function () {
     const random = Math.floor(Math.random() * colors.length);
-    document.body.style.backgroundColor = colors[random] ;
+    const color = colors[random];
+    colorChange(color);
 
+}
+
+function colorChange(color) {
+    document.body.style.backgroundColor = color;
+    document.querySelector("#colorName").innerHTML = color;
 }
